@@ -13,7 +13,7 @@ public class HomeControllerTest {
 		HomeController controller = new HomeController();
 		MockMvc mockMvc = standaloneSetup(controller).build();
 		
-		mockMvc.perform(get("/home"))
+		mockMvc.perform(get("/"))
 			.andExpect(view().name("home")); //홈뷰를 보여줌
 
 	}
