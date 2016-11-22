@@ -2,6 +2,9 @@ package com.invesume.spittr.domain;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 public class Spittle {
 	
 	private final Long id;
@@ -23,5 +26,33 @@ public class Spittle {
 		this.latitude = latitude;
 	}
 	
+	public Long getId() {
+		return id;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public Double getLongitide() {
+		return longitide;
+	}
+
+	@Override
+	public boolean equals(Object that) {
+		return EqualsBuilder.reflectionEquals(this, that, "id", "time");
+	}
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this, "id", "time");
+	}
 	
 }
